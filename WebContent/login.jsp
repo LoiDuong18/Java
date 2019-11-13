@@ -33,7 +33,7 @@
   </div>
 </nav>
 	<div class="col-lg-6" style="padding: 100px;">
-		<form class="shadow" action="kt.jsp" method="post">
+		<form class="shadow" action="ktdncontroller?kt=1" method="post">
 			<h3 class="text-center pt-4" style="color:red">Login</h3>
 				<label class="ml-3" for="">Username</label>
 		<div class="input-group mb-4">
@@ -57,6 +57,7 @@
 			<button type="submit" class="btn btn-primary ml-3 mb-3 w-25" name="login" value="login">Login</button>
 		
 		</form>
+		<a href="ktdncontroller?kt=2"> goi len servlet </a>
 		</div>
 </body>
 </html>

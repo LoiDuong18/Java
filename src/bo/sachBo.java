@@ -13,7 +13,7 @@ import dao.sachDao;
 
 public class sachBo {
 	sachDao sach = new sachDao();
-	public ArrayList<sachBean> getsach() {
+	public ArrayList<sachBean> getsach() throws Exception {
 		
 		
 		return sach.getsach();

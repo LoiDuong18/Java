@@ -1,4 +1,5 @@
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="bean.giohangBean"%>
 <%@page import="bo.giohangBo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -76,11 +77,16 @@ input[type=number]
 </style>
 </head>
 <body>
+<%
+long s1=0, tt=0;
+giohangBo g1= (giohangBo)session.getAttribute("gh");
+if (g1!=null){
+	s1=g1.ds.size();
+	tt=g1.Tong();
+}
+%>
 <nav class="navbar navbar-expand-lg mb-5 navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Sach Tong Hop</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -108,8 +114,9 @@ input[type=number]
 	<table class="table table-hover table-bordered">
 	
   <thead class="thead-dark">
-    <tr>
-    	<th scope="col">Ma Sach</th>
+      <tr>
+      
+       	<th scope="col">Ma Sach</th>
       <th scope="col">Ten Sach</th>
       <th scope="col">Tac Gia</th>
       <th scope="col">Gia</th>
@@ -132,6 +139,7 @@ input[type=number]
 			<form action="sua.jsp?ms=<%=g.getMasach() %>" method="post">
 				<div class="quantity">
   				<input type="number" min="1" name="sl" max="1000" step="1" value="<%=g.getSoluong() %>">
+  		
 				</div>
 			</form>
    		</td>
@@ -139,11 +147,11 @@ input[type=number]
 		<td style="text-align: center">
 			<a href="xoa.jsp?ms=<%=g.getMasach() %>" class="btn btn-danger">Xoa</a>
 		</td>
-    </tr>
     	<% } %>
 	<tr>
 		<td colspan="6" style="color:red">
-			Tong Tien : <% out.print(gh.Tong()); %>
+		<%DecimalFormat dd= new DecimalFormat("###,###"); %>
+		<div align="left">Tong Tien: <%=dd.format(gh.Tong()) %></div>
 		<td>
 	</tr>
 	

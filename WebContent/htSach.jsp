@@ -46,8 +46,10 @@
 	<table align="left" width="1000px">
 
 		<%
-					sachBo sach= new sachBo();
-					ArrayList<sachBean>  ds = sach.getsach();
+					//sachBo sach= new sachBo();
+					ArrayList<sachBean>  ds = (ArrayList<sachBean>)
+							request.getAttribute("dssach");
+							//sach.getsach();
 					int ss = ds.size();
 					for(int i= 0; i<ss; i++){
 						sachBean s= ds.get(i);
